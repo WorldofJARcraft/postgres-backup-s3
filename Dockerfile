@@ -1,6 +1,6 @@
-ARG ALPINE_VERSION
-FROM alpine:${ALPINE_VERSION}
-ARG TARGETARCH
+ARG POSTGRES_VERSION=15.0
+FROM postgres:${POSTGRES_VERSION}-alpine
+ARG TARGETARCH=amd64
 
 ADD src/install.sh install.sh
 RUN sh install.sh && rm install.sh
